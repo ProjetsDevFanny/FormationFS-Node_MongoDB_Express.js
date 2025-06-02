@@ -1,13 +1,14 @@
+const dotenv = require("dotenv");
+dotenv.config();
+
 const express = require("express");
+const connectDB = require("./config/db");
 const port = 5000;
 
-const app = express();
+// Connect to MongoDB ( à la DB)
+connectDB();
 
-// // req = request = la requête que nous envoyons au serveur
-// // res = response = la réponse que nous recevons du serveur
-// app.get("/post", (req, res) => {
-//   res.json({ message: "Hello World" });
-// });
+const app = express();
 
 // Middleware pour parser le JSON (traiter les données de la requête)
 app.use(express.json());
