@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router(); //On est dans l'objet router de la biliothèque express
+const postController = require("../controllers/post.controller");
 
 // CRUD = Create, Read, Update, Delete (= get, post, put, delete)
 
@@ -11,7 +12,7 @@ router.get("/", (req, res) => {
   res.json({ message: "Voici tous les posts" });
 });
 
-router.post("/", setPost);
+router.post("/", postController.setPosts);
 
 // On crée une route pour modifier un post (mise à jour)
 router.put("/:id", (req, res) => {
